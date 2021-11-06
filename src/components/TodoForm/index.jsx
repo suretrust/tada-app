@@ -2,13 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import './style.css'
+import { BeatLoader } from 'react-spinners'
 
 const TodoForm = ({
   handleSubmit,
   hideForm,
   setFormState,
   formState,
-  buttonText
+  buttonText,
+  isProcessing
 }) => {
   const handleChange = e => {
     const { name, type, checked, value: eventValue } = e.target
@@ -54,7 +56,14 @@ const TodoForm = ({
           <button onClick={hideForm} type='button'>
             Cancel
           </button>
-          <button type='submit'>{buttonText}</button>
+          <button disabled={isProcessing} type='submit'>
+            <span>{buttonText}</span>
+            {isProcessing && (
+              <div className='ml'>
+                <BeatLoader size={5} color='white' />
+              </div>
+            )}
+          </button>
         </div>
       </form>
     </div>
@@ -65,6 +74,7 @@ TodoForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   hideForm: PropTypes.func.isRequired,
   setFormState: PropTypes.func.isRequired,
+  isProcessing: PropTypes.bool,
   buttonText: PropTypes.string.isRequired,
   formState: PropTypes.shape({
     completed: PropTypes.bool.isRequired,

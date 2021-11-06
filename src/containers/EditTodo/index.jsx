@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import TodoForm from '../../components/TodoForm'
 import { updateTodoRequestAction } from '../../redux/actions/todo/updateTodoAction'
@@ -11,14 +11,18 @@ const initialState = {
 }
 
 const EditTodo = ({ todoItem, setShowEditForm }) => {
-  const dispatch = useDispatch()
   const [formState, setFormState] = useState(todoItem)
+
+  const dispatch = useDispatch()
+  const { updating } = useSelector(state => state.todos)
+
+  const handleUpdateSuccess = () => {
+    hideForm()
+  }
 
   const handleUpdateTodo = e => {
     e.preventDefault()
-    dispatch(updateTodoRequestAction(formState))
-    setFormState(initialState)
-    setShowEditForm(false)
+    dispatch(updateTodoRequestAction(formState, handleUpdateSuccess))
   }
 
   const hideForm = () => {
@@ -31,7 +35,8 @@ const EditTodo = ({ todoItem, setShowEditForm }) => {
       formState={formState}
       setFormState={setFormState}
       hideForm={hideForm}
-      buttonText='Update Todo'
+      buttonText={updating ? 'Updating Todo' : 'Update Todo'}
+      isProcessing={updating}
       handleSubmit={handleUpdateTodo}
     />
   )

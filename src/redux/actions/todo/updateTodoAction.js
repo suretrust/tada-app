@@ -4,9 +4,10 @@ import {
   TODO_UPDATE_SUCCEEDED
 } from '../../types/todoTypes'
 
-export const updateTodoRequestAction = todo => ({
+export const updateTodoRequestAction = (todo, handleUpdateSuccess) => ({
   type: TODO_UPDATE_REQUESTED,
-  todo
+  todo,
+  handleUpdateSuccess
 })
 
 export const updateTodoActionSuccess = todo => ({

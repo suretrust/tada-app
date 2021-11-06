@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { PlusCircle } from 'react-feather'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import TodoForm from '../../components/TodoForm'
 import { addTodoRequestAction } from '../../redux/actions/todo/addTodoAction'
@@ -13,15 +13,20 @@ const initialState = {
 }
 
 const AddTodo = () => {
-  const dispatch = useDispatch()
   const [showForm, setShowForm] = useState(false)
   const [formState, setFormState] = useState(initialState)
 
-  const handleAddTodo = e => {
-    e.preventDefault()
-    dispatch(addTodoRequestAction(formState))
+  const dispatch = useDispatch()
+  const { adding } = useSelector(state => state.todos)
+
+  const handleAddSuccess = () => {
     setFormState(initialState)
     setShowForm(false)
+  }
+
+  const handleAddTodo = e => {
+    e.preventDefault()
+    dispatch(addTodoRequestAction(formState, handleAddSuccess))
   }
 
   const hideForm = () => {
@@ -41,7 +46,8 @@ const AddTodo = () => {
           formState={formState}
           setFormState={setFormState}
           hideForm={hideForm}
-          buttonText="Add Todo"
+          buttonText={adding ? 'Adding Todo' : 'Add Todo'}
+          isProcessing={adding}
           handleSubmit={handleAddTodo}
         />
       )}

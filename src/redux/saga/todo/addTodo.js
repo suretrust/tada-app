@@ -11,6 +11,7 @@ export function * addTodoSaga (action) {
   try {
     const { data } = yield call(API.addTodo, action.todo)
     yield put(addTodoActionSuccess(data))
+    yield call(action.handleAddSuccess)
   } catch (error) {
     yield put(addTodoActionFailure(error.message))
   }

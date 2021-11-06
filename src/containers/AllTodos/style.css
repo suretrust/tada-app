@@ -6,6 +6,12 @@
     grid-template-columns: repeat(4, 1fr);
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media screen and (max-width: 850px) {
     .todo-list {
         grid-template-columns: repeat(3, 1fr);

@@ -43,6 +43,10 @@ input:focus, textarea:focus {
     justify-content: flex-end;
 }
 
+.overlay .ml {
+    margin-left: 5px;
+}
+
 button {
     padding: 10px 15px;
     text-transform: uppercase;
@@ -54,6 +58,12 @@ button {
     border: none;
     color: white;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+button:disabled {
+    opacity: 0.8;
 }
 
 label {
