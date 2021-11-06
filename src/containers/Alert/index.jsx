@@ -22,9 +22,9 @@ const Alert = () => {
   if (!text?.length) return null
 
   return (
-    <div className={`${ error ? 'error' : ''} alert`}>
+    <div data-testid='alert' className={`${error ? 'error' : ''} alert`}>
       {text}
-      <span className='icon' onClick={clearAlert}>
+      <span data-testid='alert-icon' className='icon' onClick={clearAlert}>
         <X />
       </span>
     </div>

@@ -40,16 +40,19 @@ const AddTodo = () => {
         onClick={() => setShowForm(true)}
         size={80}
         className='add-todo'
+        data-testid='add-icon'
       />
       {showForm && (
-        <TodoForm
-          formState={formState}
-          setFormState={setFormState}
-          hideForm={hideForm}
-          buttonText={adding ? 'Adding Todo' : 'Add Todo'}
-          isProcessing={adding}
-          handleSubmit={handleAddTodo}
-        />
+        <div data-testid='add-form'>
+          <TodoForm
+            formState={formState}
+            setFormState={setFormState}
+            hideForm={hideForm}
+            buttonText={adding ? 'Adding Todo' : 'Add Todo'}
+            isProcessing={adding}
+            handleSubmit={handleAddTodo}
+          />
+        </div>
       )}
     </>
   )

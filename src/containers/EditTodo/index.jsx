@@ -31,14 +31,16 @@ const EditTodo = ({ todoItem, setShowEditForm }) => {
   }
 
   return (
-    <TodoForm
-      formState={formState}
-      setFormState={setFormState}
-      hideForm={hideForm}
-      buttonText={updating ? 'Updating Todo' : 'Update Todo'}
-      isProcessing={updating}
-      handleSubmit={handleUpdateTodo}
-    />
+    <div data-testid='edit-todo'>
+      <TodoForm
+        formState={formState}
+        setFormState={setFormState}
+        hideForm={hideForm}
+        buttonText={updating ? 'Updating Todo' : 'Update Todo'}
+        isProcessing={updating}
+        handleSubmit={handleUpdateTodo}
+      />
+    </div>
   )
 }
 
