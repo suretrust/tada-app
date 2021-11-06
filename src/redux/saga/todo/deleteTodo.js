@@ -1,11 +1,11 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
 
-import { TODO_DELETE_REQUESTED } from '../types/todoTypes'
-import API from '../../api'
+import { TODO_DELETE_REQUESTED } from '../../types/todoTypes'
+import API from '../../../api'
 import {
   deleteTodoActionFailure,
   deleteTodoActionSuccess
-} from '../actions/todo/deleteTodoAction'
+} from '../../actions/todo/deleteTodoAction'
 
 export function * deleteTodo (action) {
   try {

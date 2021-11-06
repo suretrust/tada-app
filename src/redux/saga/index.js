@@ -1,8 +1,8 @@
 import { all } from 'redux-saga/effects'
-import watchAddTodoSaga from './addTodo'
-import watchDeleteTodo from './deleteTodo'
-import watchTodosSaga from './getTodos'
-import watchUpdateTodoSaga from './updateTodo'
+import watchAddTodoSaga from './todo/addTodo'
+import watchDeleteTodo from './todo/deleteTodo'
+import watchTodosSaga from './todo/getTodos'
+import watchUpdateTodoSaga from './todo/updateTodo'
 
 export default function * rootSaga () {
   yield all([

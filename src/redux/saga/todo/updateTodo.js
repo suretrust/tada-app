@@ -1,11 +1,11 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
 
-import { TODO_UPDATE_REQUESTED } from '../types/todoTypes'
-import API from '../../api'
+import { TODO_UPDATE_REQUESTED } from '../../types/todoTypes'
+import API from '../../../api'
 import {
   updateTodoActionFailure,
   updateTodoActionSuccess
-} from '../actions/todo/updateTodoAction'
+} from '../../actions/todo/updateTodoAction'
 
 export function * updateTodoSaga (action) {
   try {

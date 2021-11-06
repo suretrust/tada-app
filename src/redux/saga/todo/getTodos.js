@@ -1,8 +1,8 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
 
-import { TODOS_FETCH_REQUESTED } from '../types/todoTypes'
-import API from '../../api'
-import { getTodosActionFailure, getTodosActionSuccess } from '../actions/todo/getTodosAction'
+import { TODOS_FETCH_REQUESTED } from '../../types/todoTypes'
+import API from '../../../api'
+import { getTodosActionFailure, getTodosActionSuccess } from '../../actions/todo/getTodosAction'
 
 export function * getTodosSaga () {
   try {
