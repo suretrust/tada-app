@@ -62,7 +62,7 @@ const TodoForm = ({
           <button disabled={isProcessing} type='submit'>
             <span>{buttonText}</span>
             {isProcessing && (
-              <div className='ml loader'>
+              <div className='ml loader-icon'>
                 <BeatLoader size={5} color='white' />
               </div>
             )}

@@ -73,7 +73,7 @@ describe('TodoForm component', () => {
     const newProps = { ...props, isProcessing: true }
     const { container } = render(<TodoForm {...newProps} />)
 
-    expect(container.getElementsByClassName('loader').length).toBe(1)
+    expect(container.getElementsByClassName('loader-icon').length).toBe(1)
   })
 
   it('hides the loader component when isProcessing is false', () => {
