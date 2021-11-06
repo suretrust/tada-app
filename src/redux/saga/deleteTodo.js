@@ -12,7 +12,7 @@ export function * deleteTodo (action) {
     yield call(API.deleteTodo, action.todoId)
     yield put(deleteTodoActionSuccess(action.todoId))
   } catch (error) {
-    yield put(deleteTodoActionFailure('Something went wrong'))
+    yield put(deleteTodoActionFailure(error.message))
   }
 }
 

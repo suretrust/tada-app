@@ -12,7 +12,7 @@ export function * addTodoSaga (action) {
     const { data } = yield call(API.addTodo, action.todo)
     yield put(addTodoActionSuccess(data))
   } catch (error) {
-    yield put(addTodoActionFailure('Something went wrong'))
+    yield put(addTodoActionFailure(error.message))
   }
 }
 

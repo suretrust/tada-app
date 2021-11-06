@@ -9,7 +9,7 @@ export function * getTodosSaga () {
     const { data } = yield call(API.getTodos)
     yield put(getTodosActionSuccess(data))
   } catch (error) {
-    yield put(getTodosActionFailure('Something went wrong'))
+    yield put(getTodosActionFailure(error.message))
   }
 }
 

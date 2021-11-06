@@ -1,6 +1,6 @@
 .alert {
-    background: lightgreen;
-    color: green;
+    background: rgb(88, 121, 23);
+    color: white;
     padding: 1rem 2rem;
     display: flex;
     justify-content: center;
@@ -9,6 +9,12 @@
     margin-bottom: 20px;
     border-radius: 5px;
     position: relative;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.error {
+    background-color: rgb(141, 98, 18);
 }
 
 .alert span.icon {

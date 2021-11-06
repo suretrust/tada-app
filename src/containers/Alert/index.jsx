@@ -8,7 +8,7 @@ import './style.css'
 import { deleteAlertText } from '../../redux/actions/alert/deleteAlert'
 
 const Alert = () => {
-  const { text } = useSelector(state => state.todos)
+  const { text, error } = useSelector(state => state.todos)
   const dispatch = useDispatch()
 
   const clearAlert = useCallback(() => {
@@ -24,7 +24,7 @@ const Alert = () => {
   if (!text?.length) return null
 
   return (
-    <div className='alert'>
+    <div className={`${ error ? 'error' : ''} alert`}>
       {text}
       <span className='icon' onClick={clearAlert}>
         <X />

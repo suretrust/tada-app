@@ -17,7 +17,7 @@ import {
 const initialState = {
   fetching: false,
   todos: [],
-  error: null,
+  error: false,
   text: null
 }
 
@@ -29,12 +29,12 @@ const todos = (state = initialState, action) => {
     case TODO_ADD_REQUESTED:
     case TODO_DELETE_REQUESTED:
     case TODO_UPDATE_REQUESTED:
-      return { ...state, fetching: true, error: null }
+      return { ...state, fetching: true, error: false }
     case TODOS_FETCH_FAILED:
     case TODO_ADD_FAILED:
     case TODO_DELETE_FAILED:
     case TODO_UPDATE_FAILED:
-      return { ...state, fetching: false, todos: null, error: action.error }
+      return { ...state, fetching: false, error: true, text: action.error }
     case TODOS_FETCH_SUCCEEDED:
       return { ...state, fetching: false, text: null, todos: action.todos }
     case TODO_ADD_SUCCEEDED:
@@ -42,7 +42,7 @@ const todos = (state = initialState, action) => {
         ...state,
         fetching: false,
         text: 'Todo added successfully!',
-        error: null,
+        error: false,
         todos: [action.todo, ...state.todos]
       }
     case TODO_DELETE_SUCCEEDED:
@@ -50,17 +50,15 @@ const todos = (state = initialState, action) => {
         ...state,
         fetching: false,
         text: 'Todo deleted successfully!',
-        error: null,
+        error: false,
         todos: state.todos.filter(todo => todo.id !== action.todoId)
       }
     case TODO_UPDATE_SUCCEEDED:
       return {
         ...state,
         fetching: false,
-        text: `Todo marked ${
-          action.todo.completed ? '' : 'in'
-        }complete!`,
-        error: null,
+        text: 'Todo updated successfully!',
+        error: false,
         todos: state.todos.map(todo =>
           todo.id === action.todo.id ? action.todo : todo
         )
