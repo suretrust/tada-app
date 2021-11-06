@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import { useSelector, useDispatch } from 'react-redux'
 import { X } from 'react-feather'
 
@@ -30,10 +29,6 @@ const Alert = () => {
       </span>
     </div>
   )
-}
-
-Alert.propTypes = {
-  text: PropTypes.string.isRequired
 }
 
 export default Alert
