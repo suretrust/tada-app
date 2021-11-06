@@ -1,0 +1,75 @@
+.todo-list {
+    display: grid;
+    grid-gap: 20px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media screen and (max-width: 850px) {
+    .todo-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .todo-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .todo-list {
+        grid-template-columns: 1fr;
+        margin: 0 50px;
+    }
+}
+
+.todo-list .single-todo {
+    height: 180px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgb(141, 98, 18);
+    position: relative;
+}
+
+.todo-list .single-todo:hover .icons-box {
+    opacity: 1;
+}
+
+.todo-list .completed {
+    background-color: rgb(88, 121, 23);
+}
+
+.todo-list .icons-box {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 1s ease;
+    background: rgba(0%, 0%, 0%, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list .mr {
+    margin-right: 15px;
+}
+
+.todo-list .pointer {
+    cursor: pointer;
+}
+
+.no-todo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    line-height: 19px;
+    height: 80vh;
+}
