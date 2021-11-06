@@ -10,6 +10,7 @@ const TodoForm = ({
   setFormState,
   formState,
   buttonText,
+  dataTest,
   isProcessing
 }) => {
   const handleChange = e => {
@@ -20,7 +21,7 @@ const TodoForm = ({
   }
 
   return (
-    <div className='overlay'>
+    <div className='overlay' data-testid={dataTest}>
       <form onSubmit={handleSubmit}>
         <input
           value={formState.title}
@@ -83,7 +84,8 @@ TodoForm.propTypes = {
     completed: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
+  dataTest: PropTypes.string
 }
 
 export default TodoForm
