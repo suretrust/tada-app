@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { BeatLoader } from 'react-spinners'
 
 import './style.css'
-import { BeatLoader } from 'react-spinners'
 
 const TodoForm = ({
   handleSubmit,

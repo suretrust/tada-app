@@ -5,11 +5,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import './style.css'
 import { getTodosRequestAction } from '../../redux/actions/todo/getTodosAction'
 import Loading from '../../components/Loading'
-import { CheckSquare, Edit3, MinusSquare, Trash2 } from 'react-feather'
 import { deleteTodoRequestAction } from '../../redux/actions/todo/deleteTodoAction'
 import { updateTodoRequestAction } from '../../redux/actions/todo/updateTodoAction'
 import EditTodo from '../EditTodo'
-import { BeatLoader } from 'react-spinners'
+import SingleTodo from '../../components/SingleTodo'
 
 const AllTodos = () => {
   const [showEditForm, setShowEditForm] = useState(false)
@@ -56,59 +55,20 @@ const AllTodos = () => {
 
   return (
     <div className='todo-list'>
-      <ReactTooltip place='top' type='dark' effect='solid' />
       {showEditForm && (
         <EditTodo todoItem={currentTodo} setShowEditForm={setShowEditForm} />
       )}
+      <ReactTooltip place='top' type='dark' effect='solid' />
       {todos.map(todo => (
-        <div
+        <SingleTodo
+          todo={todo}
           key={`${todo.id}-${todo.title}`}
-          className={`${todo.completed ? 'completed' : ''} single-todo`}
-        >
-          <h4>{todo.title}</h4>
-          {isProcessing && currentTodoId === todo.id ? (
-            <div className='center'>
-              <BeatLoader size={5} />
-            </div>
-          ) : (
-            <small>{todo.description}</small>
-          )}
-          {!isProcessing && (
-            <div className='icons-box'>
-              <Edit3
-                onClick={() => handleEditTodo(todo.id)}
-                className='mr pointer'
-                data-tip='Edit'
-                color='white'
-                size={40}
-              />
-              {todo.completed ? (
-                <MinusSquare
-                  onClick={() => handleTodoCompleted(todo.id)}
-                  className='pointer mr'
-                  color='white'
-                  data-tip='Mark incomplete'
-                  size={40}
-                />
-              ) : (
-                <CheckSquare
-                  onClick={() => handleTodoCompleted(todo.id)}
-                  className='pointer mr'
-                  color='white'
-                  data-tip='Mark complete'
-                  size={40}
-                />
-              )}
-              <Trash2
-                onClick={() => handleDeleteTodo(todo.id)}
-                className='pointer'
-                data-tip='Delete'
-                color='red'
-                size={40}
-              />
-            </div>
-          )}
-        </div>
+          currentTodoId={currentTodoId}
+          isProcessing={isProcessing}
+          handleEditTodo={handleEditTodo}
+          handleTodoCompleted={handleTodoCompleted}
+          handleDeleteTodo={handleDeleteTodo}
+        />
       ))}
     </div>
   )

@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { X } from 'react-feather'
 
 import './style.css'
