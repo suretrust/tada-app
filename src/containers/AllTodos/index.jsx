@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactTooltip from 'react-tooltip'
 
 import './style.css'
@@ -6,13 +6,15 @@ import { getTodosRequestAction } from '../../redux/actions/todo/getTodosAction'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import Loading from '../../components/Loading'
-import ErrorComponent from '../../components/ErrorComponent'
 import { CheckSquare, Edit3, MinusSquare, Trash2 } from 'react-feather'
 import { deleteTodoRequestAction } from '../../redux/actions/todo/deleteTodoAction'
 import { updateTodoRequestAction } from '../../redux/actions/todo/updateTodoAction'
+import EditTodo from '../EditTodo'
 
 const AllTodos = () => {
-  const { todos, fetching, error } = useSelector(state => state.todos)
+  const [showEditForm, setShowEditForm] = useState(false)
+  const [currentTodo, setCurrentTodo] = useState(false)
+  const { todos, fetching } = useSelector(state => state.todos)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -29,10 +31,13 @@ const AllTodos = () => {
     dispatch(updateTodoRequestAction(updatedTodo))
   }
 
-  const handleEditTodo = () => {}
+  const handleEditTodo = todoId => {
+    const todo = todos.find(todo => todo.id === todoId)
+    setCurrentTodo(todo)
+    setShowEditForm(true)
+  }
 
   if (fetching) return <Loading />
-  if (error) return <ErrorComponent error={error} />
   if (!todos?.length) {
     return (
       <div className='no-todo'>
@@ -45,6 +50,9 @@ const AllTodos = () => {
   return (
     <div className='todo-list'>
       <ReactTooltip place='top' type='dark' effect='solid' />
+      {showEditForm && (
+        <EditTodo todoItem={currentTodo} setShowEditForm={setShowEditForm} />
+      )}
       {todos.map(todo => (
         <div
           key={`${todo.id}-${todo.title}`}
@@ -54,7 +62,7 @@ const AllTodos = () => {
           <small>{todo.description}</small>
           <div className='icons-box'>
             <Edit3
-              onClick={handleEditTodo}
+              onClick={() => handleEditTodo(todo.id)}
               className='mr pointer'
               data-tip='Edit'
               color='white'
