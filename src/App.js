@@ -1,4 +1,4 @@
-import logo from './logo.svg'
+import Logo from './logo.png'
 import './App.css'
 import AllTodos from './containers/AllTodos'
 import AddTodo from './containers/AddTodo'
@@ -8,8 +8,10 @@ const App = () => {
   return (
     <div className='App'>
       <div className='container'>
-        <header>tada app</header>
-        <Alert text="I am working." />
+        <header>
+          <img src={Logo} alt='logo' /> tada app
+        </header>
+        <Alert text='I am working.' />
         <AllTodos />
         <AddTodo />
       </div>
