@@ -25,6 +25,7 @@ const TodoForm = ({
         <input
           value={formState.title}
           type='text'
+          data-testid='title'
           placeholder='Enter todo title'
           name='title'
           id='title'
@@ -33,8 +34,9 @@ const TodoForm = ({
         />
         <textarea
           value={formState.description}
-          placeholder='Enter todo description &#10;(110 characters max)'
+          placeholder='Enter todo description (110 characters max)'
           type='text'
+          data-testid='description'
           name='description'
           onChange={handleChange}
           id='description'
@@ -45,6 +47,7 @@ const TodoForm = ({
             checked={formState.completed}
             type='checkbox'
             onChange={handleChange}
+            data-testid='completed'
             id='completed'
             name='completed'
             placeholder='Completed'
@@ -59,7 +62,7 @@ const TodoForm = ({
           <button disabled={isProcessing} type='submit'>
             <span>{buttonText}</span>
             {isProcessing && (
-              <div className='ml'>
+              <div className='ml loader'>
                 <BeatLoader size={5} color='white' />
               </div>
             )}

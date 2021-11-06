@@ -28,6 +28,7 @@ const SingleTodo = ({
           <Edit3
             onClick={() => handleEditTodo(todo.id)}
             className='mr pointer'
+            data-testid='edit'
             data-tip='Edit'
             color='white'
             size={40}
@@ -36,6 +37,7 @@ const SingleTodo = ({
             <MinusSquare
               onClick={() => handleTodoCompleted(todo.id)}
               className='pointer mr'
+              data-testid='incomplete'
               color='white'
               data-tip='Mark incomplete'
               size={40}
@@ -44,6 +46,7 @@ const SingleTodo = ({
             <CheckSquare
               onClick={() => handleTodoCompleted(todo.id)}
               className='pointer mr'
+              data-testid='complete'
               color='white'
               data-tip='Mark complete'
               size={40}
@@ -52,6 +55,7 @@ const SingleTodo = ({
           <Trash2
             onClick={() => handleDeleteTodo(todo.id)}
             className='pointer'
+            data-testid='delete'
             data-tip='Delete'
             color='red'
             size={40}
