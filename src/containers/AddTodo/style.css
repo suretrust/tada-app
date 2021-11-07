@@ -1,0 +1,10 @@
+.add-todo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.add-todo:hover {
+    color: yellowgreen;
+}
