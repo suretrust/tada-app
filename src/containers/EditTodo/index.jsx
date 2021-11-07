@@ -36,7 +36,7 @@ const EditTodo = ({ todoItem, setShowEditForm }) => {
       formState={formState}
       setFormState={setFormState}
       hideForm={hideForm}
-      buttonText={updating ? 'Updating Todo' : 'Update Todo'}
+      buttonText={updating ? 'Updating' : 'Update'}
       isProcessing={updating}
       handleSubmit={handleUpdateTodo}
     />

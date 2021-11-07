@@ -33,6 +33,6 @@ describe('EditTodo component', () => {
   it('has the update todo text when updating is false', () => {
     const { queryByTestId } = render(<EditTodo {...props} />)
 
-    expect(queryByTestId('edit-todo')).toHaveTextContent('Update Todo')
+    expect(queryByTestId('edit-todo')).toHaveTextContent('Update')
   })
 })

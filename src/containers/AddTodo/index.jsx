@@ -48,7 +48,7 @@ const AddTodo = () => {
             formState={formState}
             setFormState={setFormState}
             hideForm={hideForm}
-            buttonText={adding ? 'Adding Todo' : 'Add Todo'}
+            buttonText={adding ? 'Adding' : 'Add'}
             isProcessing={adding}
             handleSubmit={handleAddTodo}
           />

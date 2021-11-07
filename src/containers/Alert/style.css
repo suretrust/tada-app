@@ -11,6 +11,7 @@
     position: relative;
     font-size: 16px;
     line-height: 19px;
+    z-index: 9;
 }
 
 .error {
