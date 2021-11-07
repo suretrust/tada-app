@@ -7,18 +7,18 @@
 </p>
 
 <p>
-This is a simple a simple to-do list web app built with React, Redux and Redux-Saga. This app has no authentication system.
+This is a simple to-do list web app built with React, Redux and Redux-Saga. This app has no authentication system.
 </p>
 
 ### Details
 
 - Users can list all their todo items.
-- Users can add, edit, and delete a new a new todo item.
+- Users can add, edit, and delete a new todo item.
 - Users can mark a todo item complete or incomplete.
 
 ### Backend Limitations
 
-I am using [{JSON Placeholder}](https://jsonplaceholder.typicode.com/) which is a free fake API for testing and prototyping. This means that a user can add a new item but CANNOT update/delete/mark complete or incomplete a newly added item.
+I am using [{JSON Placeholder}](https://jsonplaceholder.typicode.com/) which is a free fake API for testing and prototyping. This means that a user can add a new item but CANNOT update/delete/mark complete or incomplete a newly added item (this will raise a 404 error because an added item is not actually added to the backend).
 
 The user can, however, update/delete/mark complete or incomplete an already existing todo item.
 
