@@ -1,85 +1,85 @@
 .todo-list {
-    display: grid;
-    grid-gap: 20px;
-    margin: 0 auto;
-    padding-bottom: 30px;
-    grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  grid-gap: 20px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 850px) {
-    .todo-list {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .todo-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media screen and (max-width: 650px) {
-    .todo-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .todo-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (max-width: 450px) {
-    .todo-list {
-        grid-template-columns: 1fr;
-    }
+  .todo-list {
+    grid-template-columns: 1fr;
+  }
 
-    .todo-list .single-todo {
-        height: auto !important;
-    }
+  .todo-list .single-todo {
+    height: auto !important;
+  }
 }
 
 .todo-list .single-todo {
-    height: 170px;
-    padding: 15px;
-    border-radius: 10px;
-    background-color: rgb(141, 98, 18);
-    position: relative;
+  height: 170px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(141, 98, 18);
+  position: relative;
 }
 
 .todo-list .single-todo:hover .icons-box {
-    opacity: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .todo-list .completed {
-    background-color: rgb(88, 121, 23);
+  background-color: rgb(88, 121, 23);
 }
 
 .todo-list .icons-box {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    display: none;
-    transition: 1s ease;
-    background: rgba(0%, 0%, 0%, 0.25);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  display: none;
+  transition: 1s ease;
+  background: rgba(0%, 0%, 0%, 0.25);
 }
 
 .todo-list .mr {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .todo-list .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .no-todo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    line-height: 19px;
-    height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  line-height: 19px;
+  height: 80vh;
 }

@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { BeatLoader } from 'react-spinners'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { BeatLoader } from 'react-spinners';
 
-import './style.css'
+import './style.css';
 
 const TodoForm = ({
   handleSubmit,
@@ -11,68 +11,68 @@ const TodoForm = ({
   formState,
   buttonText,
   dataTest,
-  isProcessing
+  isProcessing,
 }) => {
   const handleChange = e => {
-    const { name, type, checked, value: eventValue } = e.target
-    const value = type === 'checkbox' ? checked : eventValue.slice(0, 110)
+    const { name, type, checked, value: eventValue } = e.target;
+    const value = type === 'checkbox' ? checked : eventValue.slice(0, 110);
 
-    setFormState(fields => ({ ...fields, [name]: value }))
-  }
+    setFormState(fields => ({ ...fields, [name]: value }));
+  };
 
   return (
-    <div className='overlay' data-testid={dataTest}>
+    <div className="overlay" data-testid={dataTest}>
       <form onSubmit={handleSubmit}>
         <input
           value={formState.title}
-          type='text'
-          data-testid='title'
-          placeholder='Enter todo title'
-          name='title'
-          id='title'
+          type="text"
+          data-testid="title"
+          placeholder="Enter todo title"
+          name="title"
+          id="title"
           onChange={handleChange}
           required
         />
         <textarea
           value={formState.description}
-          placeholder='Enter todo description (110 characters max)'
-          type='text'
-          data-testid='description'
-          name='description'
+          placeholder="Enter todo description (110 characters max)"
+          type="text"
+          data-testid="description"
+          name="description"
           onChange={handleChange}
-          id='description'
+          id="description"
           required
         />
-        <label htmlFor='completed' className='status'>
+        <label htmlFor="completed" className="status">
           <input
             checked={formState.completed}
-            type='checkbox'
+            type="checkbox"
             onChange={handleChange}
-            data-testid='completed'
-            id='completed'
-            name='completed'
-            placeholder='Completed'
+            data-testid="completed"
+            id="completed"
+            name="completed"
+            placeholder="Completed"
           />
-          <span className='check-mark' />
-          <span className='label-text'>Completed</span>
+          <span className="check-mark" />
+          <span className="label-text">Completed</span>
         </label>
-        <div className='buttons-box'>
-          <button onClick={hideForm} type='button'>
+        <div className="buttons-box">
+          <button onClick={hideForm} type="button">
             Cancel
           </button>
-          <button disabled={isProcessing} type='submit'>
+          <button disabled={isProcessing} type="submit">
             <span>{buttonText}</span>
             {isProcessing && (
-              <div className='ml loader-icon'>
-                <BeatLoader size={5} color='white' />
+              <div className="ml loader-icon">
+                <BeatLoader size={5} color="white" />
               </div>
             )}
           </button>
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
 TodoForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
@@ -83,9 +83,9 @@ TodoForm.propTypes = {
   formState: PropTypes.shape({
     completed: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired
+    description: PropTypes.string.isRequired,
   }).isRequired,
-  dataTest: PropTypes.string
-}
+  dataTest: PropTypes.string,
+};
 
-export default TodoForm
+export default TodoForm;

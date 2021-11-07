@@ -1,21 +1,21 @@
 import {
   TODO_UPDATE_FAILED,
   TODO_UPDATE_REQUESTED,
-  TODO_UPDATE_SUCCEEDED
-} from '../../types/todoTypes'
+  TODO_UPDATE_SUCCEEDED,
+} from '../../types/todoTypes';
 
 export const updateTodoRequestAction = (todo, handleUpdateSuccess) => ({
   type: TODO_UPDATE_REQUESTED,
   todo,
-  handleUpdateSuccess
-})
+  handleUpdateSuccess,
+});
 
 export const updateTodoActionSuccess = todo => ({
   type: TODO_UPDATE_SUCCEEDED,
-  todo
-})
+  todo,
+});
 
 export const updateTodoActionFailure = error => ({
   type: TODO_UPDATE_FAILED,
-  error
-})
+  error,
+});
