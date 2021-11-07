@@ -70,7 +70,8 @@ SingleTodo.propTypes = {
   todo: PropTypes.shape({
     completed: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired
+    description: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired
   }).isRequired,
   currentTodoId: PropTypes.number.isRequired,
   isProcessing: PropTypes.bool.isRequired,

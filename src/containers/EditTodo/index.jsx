@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import TodoForm from '../../components/TodoForm'
 import { updateTodoRequestAction } from '../../redux/actions/todo/updateTodoAction'
@@ -41,6 +42,15 @@ const EditTodo = ({ todoItem, setShowEditForm }) => {
       handleSubmit={handleUpdateTodo}
     />
   )
+}
+
+EditTodo.propTypes = {
+  todoItem: PropTypes.shape({
+    completed: PropTypes.bool.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired
+  }).isRequired,
+  setShowEditForm: PropTypes.func.isRequired
 }
 
 export default EditTodo

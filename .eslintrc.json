@@ -31,6 +31,8 @@
         ],
         "import/no-unresolved": "off",
         "no-shadow": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/no-unescaped-entities": "off",
         "arrow-parens": [
             "error",
             "as-needed"
