@@ -1,5 +1,5 @@
-import { DELETE_ALERT_TEXT } from '../../types/todoTypes'
+import { DELETE_ALERT_TEXT } from '../../types/todoTypes';
 
 export const deleteAlertText = () => ({
-  type: DELETE_ALERT_TEXT
-})
+  type: DELETE_ALERT_TEXT,
+});

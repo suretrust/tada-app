@@ -1,29 +1,29 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const BASE_URL =
-  'https://my-json-server.typicode.com/suretrust/fake-tada-server'
+  'https://my-json-server.typicode.com/suretrust/fake-tada-server';
 
 const getTodos = () => {
-  return axios.get(`${BASE_URL}/todos`)
-}
+  return axios.get(`${BASE_URL}/todos`);
+};
 
 const addTodo = todo => {
-  return axios.post(`${BASE_URL}/todos`, todo)
-}
+  return axios.post(`${BASE_URL}/todos`, todo);
+};
 
 const deleteTodo = todoId => {
-  return axios.delete(`${BASE_URL}/todos/${todoId}`)
-}
+  return axios.delete(`${BASE_URL}/todos/${todoId}`);
+};
 
 const updateTodo = todo => {
-  return axios.put(`${BASE_URL}/todos/${todo.id}`, todo)
-}
+  return axios.put(`${BASE_URL}/todos/${todo.id}`, todo);
+};
 
 const API = {
   addTodo,
   deleteTodo,
   getTodos,
-  updateTodo
-}
+  updateTodo,
+};
 
-export default API
+export default API;

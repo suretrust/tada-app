@@ -23,6 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:coverage": "CI=true npm test -- --env=jsdom --coverage",
+    "format": "prettier --check --write '**'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
